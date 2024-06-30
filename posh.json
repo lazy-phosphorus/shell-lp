@@ -13,6 +13,19 @@
                     "type": "root"
                 },
                 {
+                    "background": "#9B59B6",
+                    "foreground": "#E8EAEE",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "command": "[ $MSYS_ENV ] && (echo $MSYS_ENV)",
+                        "interpret": false,
+                        "shell": "bash"
+                    },
+                    "style": "powerline",
+                    "template": "{{ if .Output }} {{ .Output }} {{ end }}",
+                    "type": "command"
+                },
+                {
                     "background": "#2ECC71",
                     "foreground": "#2C3E50",
                     "powerline_symbol": "",
@@ -22,7 +35,7 @@
                 },
                 {
                     "background": "#566573",
-                    "foreground": "#D0D3D4",
+                    "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "properties": {
                         "style": "full"
@@ -35,17 +48,17 @@
                     "background": "#F39C12",
                     "foreground": "#2C3E50",
                     "powerline_symbol": "",
-                    "style": "powerline",
-                    "template": " {{ .HEAD }} {{ if .Behind }}\uf063{{ .Behind }} {{ end }}{{ if .Ahead }}\uf062{{ .Ahead }} {{ end }}{{ if .Working.Changed }}{{ .Working.String }} {{ end }}{{ if .Staging.Changed }}{{ .Staging.String }} {{ end }}",
                     "properties": {
                         "fetch_status": true,
                         "fetch_upstream_icon": true
                     },
+                    "style": "powerline",
+                    "template": " {{ .HEAD }} {{ if .Behind }}{{ .Behind }} {{ end }}{{ if .Ahead }}{{ .Ahead }} {{ end }}{{ if .Working.Changed }}{{ .Working.String }} {{ end }}{{ if .Staging.Changed }}{{ .Staging.String }} {{ end }}",
                     "type": "git"
                 },
                 {
                     "background": "#16A085",
-                    "foreground": "#D0D3D4",
+                    "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "properties": {
                         "always_enabled": true,
@@ -57,13 +70,11 @@
                     "type": "executiontime"
                 },
                 {
-                    "background_templates": [
-                        "{{ if .Error }}#E74C3C{{ else }}#2ECC71{{ end }}"
-                    ],
-                    "foreground": "#D0D3D4",
+                    "background": "#E74C3C",
+                    "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "style": "powerline",
-                    "template": "{{ if eq .Code 0 }}  {{ else }}   {{ .Code }} {{ end }}",
+                    "template": " {{ reason .Code }}({{ .Code }}) ",
                     "type": "status"
                 }
             ],
@@ -78,76 +89,101 @@
                     "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "properties": {
-                        "cache_version": true
+                        "cache_version": true,
+                        "command": "cmake --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (cmake --version | grep version | awk '{print $3}')",
+                        "interpret": false,
+                        "shell": "bash"
                     },
                     "style": "powerline",
-                    "template": " CMake {{ .Full }} ",
-                    "type": "cmake"
+                    "template": "{{ if .Output }} CMake {{ .Output }} {{ end }}",
+                    "type": "command"
                 },
                 {
-                    "type": "command",
-                    "style": "powerline",
-                    "powerline_symbol": "",
                     "background": "#FAD7A0",
                     "foreground": "#2C3E50",
+                    "powerline_symbol": "",
                     "properties": {
-                        "shell": "bash",
+                        "cache_version": true,
+                        "command": "gcc --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')",
                         "interpret": false,
-                        "command": "[[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')"
+                        "shell": "bash"
                     },
-                    "template": "{{ if .Output }} GCC {{ .Output }} {{ end }}"
+                    "style": "powerline",
+                    "template": "{{ if .Output }} GCC {{ .Output }} {{ end }}",
+                    "type": "command"
                 },
                 {
-                    "type": "command",
-                    "style": "powerline",
-                    "powerline_symbol": "",
                     "background": "#16A085",
                     "foreground": "#2C3E50",
+                    "powerline_symbol": "",
                     "properties": {
-                        "shell": "bash",
+                        "cache_version": true,
+                        "command": "clang --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')",
                         "interpret": false,
-                        "command": "[[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')"
+                        "shell": "bash"
                     },
-                    "template": "{{ if .Output }} LLVM {{ .Output }} {{ end }}"
+                    "style": "powerline",
+                    "template": "{{ if .Output }} LLVM {{ .Output }} {{ end }}",
+                    "type": "command"
+                },
+                {
+                    "background": "#76D7C4",
+                    "foreground": "#2C3E50",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "cache_version": true,
+                        "command": "go version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.go go.mod 2>&1 | grep -v 'ls:' | wc -l) ]] && (go version | awk '{print $3}' | awk -v FS='go' '{print $2}')",
+                        "interpret": false,
+                        "shell": "bash"
+                    },
+                    "style": "powerline",
+                    "template": "{{ if .Output }} Go {{ .Output }} {{ end }}",
+                    "type": "command"
                 },
                 {
                     "background": "#6CA35E",
-                    "foreground": "#D0D3D4",
+                    "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "properties": {
-                        "cache_version": true
+                        "cache_version": true,
+                        "command": "node --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.mjs *.js *.ts *.mts package.json tsconfig.json node_modules *.jsx *.tsx 2>&1 | grep -v 'ls:' | wc -l) ]] && (node --version | awk -v FS='v' '{print $2}')",
+                        "interpret": false,
+                        "shell": "bash"
                     },
                     "style": "powerline",
-                    "template": " Node.js {{ .Full }} ",
-                    "type": "node"
+                    "template": "{{ if .Output }} Node.js {{ .Output }} {{ end }}",
+                    "type": "command"
                 },
                 {
                     "background": "#F39C12",
-                    "foreground": "#D0D3D4",
+                    "foreground": "#2C3E50",
                     "powerline_symbol": "",
                     "properties": {
-                        "cache_version": true
+                        "cache_version": true,
+                        "command": "java --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls pom.xml *.java 2>&1 | grep -v 'ls:' | wc -l) ]] && (java --version | grep openjdk | awk '{print $2}')",
+                        "interpret": false,
+                        "shell": "bash"
                     },
                     "style": "powerline",
-                    "template": " JDK {{ .Full }} ",
-                    "type": "java"
+                    "template": "{{ if .Output }} Java {{ .Output }} {{ end }}",
+                    "type": "command"
                 },
                 {
                     "background": "#2471A3",
-                    "foreground": "#D0D3D4",
+                    "foreground": "#E8EAEE",
                     "powerline_symbol": "",
                     "properties": {
-                        "shell": "bash",
+                        "cache_version": true,
+                        "command": "python --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.py *.ipynb 2>&1 | grep -v 'ls:' | wc -l) ]] && (python --version | awk '{print $2}')",
                         "interpret": false,
-                        "command": "[[ 0 -ne $(ls *.py *.ipynb | wc -l) ]] && (python --version | awk '{print $2}')",
-                        "cache_version": true
+                        "shell": "bash"
                     },
                     "style": "powerline",
                     "template": "{{ if .Output }} Python {{ .Output }} {{ end }}",
                     "type": "command"
                 },
                 {
-                    "foreground": "#D0D3D4",
+                    "foreground": "#E8EAEE",
                     "style": "plain",
                     "template": "❯",
                     "type": "text"
