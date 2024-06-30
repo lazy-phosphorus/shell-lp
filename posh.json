@@ -1,0 +1,161 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "background": "#E74C3C",
+                    "foreground": "#F1C40F",
+                    "powerline_symbol": "",
+                    "style": "powerline",
+                    "template": "  ",
+                    "type": "root"
+                },
+                {
+                    "background": "#2ECC71",
+                    "foreground": "#2C3E50",
+                    "powerline_symbol": "",
+                    "style": "powerline",
+                    "template": " {{ .UserName }}@{{ .HostName }} ",
+                    "type": "session"
+                },
+                {
+                    "background": "#566573",
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "style": "full"
+                    },
+                    "style": "powerline",
+                    "template": " {{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "background": "#F39C12",
+                    "foreground": "#2C3E50",
+                    "powerline_symbol": "",
+                    "style": "powerline",
+                    "template": " {{ .HEAD }} {{ if .Behind }}\uf063{{ .Behind }} {{ end }}{{ if .Ahead }}\uf062{{ .Ahead }} {{ end }}{{ if .Working.Changed }}{{ .Working.String }} {{ end }}{{ if .Staging.Changed }}{{ .Staging.String }} {{ end }}",
+                    "properties": {
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "type": "git"
+                },
+                {
+                    "background": "#16A085",
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "always_enabled": true,
+                        "style": "amarillo",
+                        "threshold": 0
+                    },
+                    "style": "powerline",
+                    "template": " {{ .FormattedMs }} ",
+                    "type": "executiontime"
+                },
+                {
+                    "background_templates": [
+                        "{{ if .Error }}#E74C3C{{ else }}#2ECC71{{ end }}"
+                    ],
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "style": "powerline",
+                    "template": "{{ if eq .Code 0 }}  {{ else }}   {{ .Code }} {{ end }}",
+                    "type": "status"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "background": "#1F618D",
+                    "foreground": "#E8EAEE",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "cache_version": true
+                    },
+                    "style": "powerline",
+                    "template": " CMake {{ .Full }} ",
+                    "type": "cmake"
+                },
+                {
+                    "type": "command",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "background": "#FAD7A0",
+                    "foreground": "#2C3E50",
+                    "properties": {
+                        "shell": "bash",
+                        "interpret": false,
+                        "command": "[[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')"
+                    },
+                    "template": "{{ if .Output }} GCC {{ .Output }} {{ end }}"
+                },
+                {
+                    "type": "command",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "background": "#16A085",
+                    "foreground": "#2C3E50",
+                    "properties": {
+                        "shell": "bash",
+                        "interpret": false,
+                        "command": "[[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')"
+                    },
+                    "template": "{{ if .Output }} LLVM {{ .Output }} {{ end }}"
+                },
+                {
+                    "background": "#6CA35E",
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "cache_version": true
+                    },
+                    "style": "powerline",
+                    "template": " Node.js {{ .Full }} ",
+                    "type": "node"
+                },
+                {
+                    "background": "#F39C12",
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "cache_version": true
+                    },
+                    "style": "powerline",
+                    "template": " JDK {{ .Full }} ",
+                    "type": "java"
+                },
+                {
+                    "background": "#2471A3",
+                    "foreground": "#D0D3D4",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "shell": "bash",
+                        "interpret": false,
+                        "command": "[[ 0 -ne $(ls *.py *.ipynb | wc -l) ]] && (python --version | awk '{print $2}')",
+                        "cache_version": true
+                    },
+                    "style": "powerline",
+                    "template": "{{ if .Output }} Python {{ .Output }} {{ end }}",
+                    "type": "command"
+                },
+                {
+                    "foreground": "#D0D3D4",
+                    "style": "plain",
+                    "template": "❯",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "final_space": true,
+    "version": 2
+}
