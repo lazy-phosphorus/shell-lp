@@ -1,1 +1,1 @@
-oh-my-posh init pwsh --config 'D:/Files/Documents/PowerShell/posh.json' | Invoke-Expression
+oh-my-posh init pwsh --config "$(Split-Path $PROFILE)\posh.json" | Invoke-Expression
