@@ -1,5 +1,7 @@
 # SHELL-LP
 
+![preview](./preview.png "预览图")
+
 This repository is a customized theme of [Oh My Posh](https://ohmyposh.dev/).
 
 ## Usage
