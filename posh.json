@@ -90,7 +90,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "cmake --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (cmake --version | grep version | awk '{print $3}')",
+                        "command": "cmake --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (cmake --version | grep version | awk '{print $3}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -104,7 +104,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "gcc --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')",
+                        "command": "gcc --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -118,7 +118,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "clang --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')",
+                        "command": "clang --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -132,7 +132,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "go version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.go go.mod 2>&1 | grep -v 'ls:' | wc -l) ]] && (go version | awk '{print $3}' | awk -v FS='go' '{print $2}')",
+                        "command": "go version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.go go.mod 2>&1 | grep -v 'ls:' | wc -l) ]] && (go version | awk '{print $3}' | awk -v FS='go' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -146,7 +146,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "node --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.mjs *.js *.ts *.mts package.json tsconfig.json node_modules *.jsx *.tsx 2>&1 | grep -v 'ls:' | wc -l) ]] && (node --version | awk -v FS='v' '{print $2}')",
+                        "command": "node --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.mjs *.js *.ts *.mts package.json tsconfig.json node_modules *.jsx *.tsx 2>&1 | grep -v 'ls:' | wc -l) ]] && (node --version | awk -v FS='v' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -160,7 +160,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "java --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls pom.xml *.java 2>&1 | grep -v 'ls:' | wc -l) ]] && (java --version | grep openjdk | awk '{print $2}')",
+                        "command": "java --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls pom.xml *.java 2>&1 | grep -v 'ls:' | wc -l) ]] && (java --version | grep openjdk | awk '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -174,7 +174,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "python --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.py *.ipynb 2>&1 | grep -v 'ls:' | wc -l) ]] && (python --version | awk '{print $2}')",
+                        "command": "python --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.py *.ipynb 2>&1 | grep -v 'ls:' | wc -l) ]] && (python --version | awk '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },

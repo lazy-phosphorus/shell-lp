@@ -1,8 +1,14 @@
 # SHELL-LP
 
+![preview](./msys2-preview.png "MSYS2 Bash 预览图")
+
 ![preview](./preview.png "预览图")
 
 This repository is a customized theme of [Oh My Posh](https://ohmyposh.dev/).
+
+## Prequisite
+
+[BusyBox](https://www.busybox.net/) should be correctly installed if you want to use this theme on Windows.
 
 ## Usage
 
@@ -18,7 +24,7 @@ To use oh-my-posh in msys2 bash, you should install oh-my-posh in Windows and ad
 
 ```shell
 export PATH=$PATH:/c/Users/[your username]/AppData/Local/Programs/oh-my-posh/bin
-export MSYS_ENV=$(echo $MSYSTEM_PREFIX | awk -v FS='/' '{print $2}')
+export MSYS_ENV=${MSYSTEM_PREFIX:1}
 eval "$(oh-my-posh init bash --config '/path/to/posh.json')"
 ```
 
