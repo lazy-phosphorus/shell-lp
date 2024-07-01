@@ -90,7 +90,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "cmake --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (cmake --version | grep version | awk '{print $3}')",
+                        "command": "cmake --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (cmake --version | grep version | awk '{print $3}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -104,7 +104,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "gcc --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')",
+                        "command": "gcc --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (gcc --version | grep gcc | awk -v FS=') ' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
@@ -118,7 +118,7 @@
                     "powerline_symbol": "",
                     "properties": {
                         "cache_version": true,
-                        "command": "clang --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt 2>&1 | grep -v 'ls:' | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')",
+                        "command": "clang --version 2>&1 | awk '{print $114}'; [ $? -eq 0 ] && [[ 0 -ne $(ls *.h *.c *.cpp *.hpp CMakeLists.txt Makefile 2>&1 | grep -v 'ls:' | wc -l) ]] && (clang --version | grep clang | awk -v FS='version ' '{print $2}')",
                         "interpret": false,
                         "shell": "bash"
                     },
