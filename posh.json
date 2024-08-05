@@ -127,6 +127,20 @@
                     "type": "command"
                 },
                 {
+                    "background": "#E67E22",
+                    "foreground": "#2C3E50",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "cache_version": true,
+                        "command": "rustc --version 2>&1 | echo ''; [ $? -eq 0 ] && [[ 0 -ne $(ls *.rs Cargo.toml Cargo.lock 2>&1 | grep -v 'ls:' | wc -l) ]] && (rustc --version | awk '{print $2}')",
+                        "interpret": false,
+                        "shell": "bash"
+                    },
+                    "style": "powerline",
+                    "template": "{{ if .Output }} Rust {{ .Output }} {{ end }}",
+                    "type": "command"
+                },
+                {
                     "background": "#76D7C4",
                     "foreground": "#2C3E50",
                     "powerline_symbol": "",
